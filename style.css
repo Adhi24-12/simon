@@ -6,9 +6,10 @@
       overflow: hidden;
     }
 
-    #root 
-    { width: 100%; 
-        max-width: 680px;
+    #root { 
+        width: 100%; 
+        max-width: 680px; 
+        padding: 0 12px;
      }
 
     .game-container {
@@ -62,10 +63,10 @@
       display: grid; 
       grid-template-columns: repeat(4, 1fr); 
       grid-template-rows: repeat(4, 1fr);
-      gap: 12px; 
-      width: 440px; 
-      height: 400px; 
       margin: 16px auto 6px;
+      width: min(92vw, 460px);
+      height: min(92vw, 460px);
+      gap: clamp(6px, 2vw, 14px);
     }
 
     .color-button {
@@ -189,7 +190,21 @@
       .simon-board { width: 92vw; height: 92vw; gap: 8px; }
       h1 { font-size: 2rem; }
     }
-  @media (max-width: 600px) {
-  .color-button { border-radius: 10px; }
-  .color-button:active { transform: scale(0.96); }
+    @media (max-width: 600px) {
+  .game-container { padding: 18px; }
+  h1 { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+  .info-panel { padding: 10px 12px; }
+  .instructions { padding: 12px; }
+  .controls { gap: 12px; }
+  button { padding: 9px 14px; font-size: 0.95rem; }
+} /* [2][3] */
+
+/* Very small devices: ensure everything fits comfortably */
+@media (max-width: 380px) {
+  .simon-board {
+    width: 94vw;
+    height: 94vw;
+    gap: 6px;
+  }
 }
+ 
